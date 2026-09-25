@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="What ScanBoy, the work-recording tool Fidorn, Inc. uses internally, records, where it goes, how long it is kept, and how to stop it.">
+<title>ScanBoy privacy policy</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --text: #121a2c;
+    --muted: #4b5366;
+    --rule: #e4dfd3;
+    --link: #1e4fd6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121a2c;
+      --text: #f2eee4;
+      --muted: #b9b5ab;
+      --rule: #2b3550;
+      --link: #9dbbff;
+    }
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  main {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.4rem;
+  }
+  .updated {
+    color: var(--muted);
+    margin: 0 0 2rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+    line-height: 1.35;
+    margin: 2.25rem 0 0.6rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  p, ul, ol {
+    margin: 0 0 1rem;
+  }
+  ul, ol {
+    padding-left: 1.4rem;
+  }
+  li {
+    margin: 0.4rem 0;
+  }
+  li::marker {
+    color: var(--muted);
+  }
+  a {
+    color: var(--link);
+    text-underline-offset: 0.15em;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  @media print {
+    :root { --bg: #fff; --text: #000; --muted: #333; --rule: #999; --link: #000; }
+    main { max-width: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>ScanBoy privacy policy</h1>
+<p class="updated">Last updated: <time datetime="2026-09-25">25 September 2026</time></p>
+</header>
+
+<p>ScanBoy is a work-recording tool that Fidorn, Inc. ("we") uses internally. It has two parts: the ScanBoy desktop app for Windows, and the ScanBoy browser extension for Chrome and Edge. This page explains what they record, where it goes, how long it is kept, and how to stop it.</p>
+
+<section aria-labelledby="who-uses">
+<h2 id="who-uses">Who uses ScanBoy</h2>
+<p>Only our own staff and invited testers who have accepted the ScanBoy recording agreement. The agreement is shown by the desktop app before anything is recorded, and nothing is recorded unless the person clicks "Agree and start recording". If the agreement changes, the person is asked again. The extension is listed privately (Unlisted on the Chrome Web Store, Hidden on Edge Add-ons) and is useless without the desktop app.</p>
+</section>
+
+<section aria-labelledby="extension-records">
+<h2 id="extension-records">What the browser extension records</h2>
+<p>On the web pages a person works in, the extension notes:</p>
+<ul>
+<li>the full address of each page, including everything after the "?";</li>
+<li>the page title;</li>
+<li>the fields, buttons and labels on the page, which one the person used, and the value typed into an ordinary field;</li>
+<li>how the page changed while the person worked;</li>
+<li>which browser tab and window was in use.</li>
+</ul>
+<p>It never reads the value of a password field, a card number, a card security code, a one-time code, or a hidden or file field: those are masked before any value is read. It does not filter out personal websites. The extension sends nothing over the internet and saves nothing itself: it hands what it notes to the ScanBoy desktop app on the same computer.</p>
+</section>
+
+<section aria-labelledby="app-records">
+<h2 id="app-records">What the desktop app records</h2>
+<p>The desktop app records what the recording agreement lists: screenshots of the screen in use, keystrokes (a key typed into a password field is masked: only the fact that a key was pressed is kept), mouse clicks and scrolling, the names and titles of the apps and windows used, the structure and visible text of the focused window, the computer's time zone, and what the browser extension hands it. No audio is recorded. The recording agreement is the full and binding list.</p>
+</section>
+
+<section aria-labelledby="where">
+<h2 id="where">Where the recording goes</h2>
+<ol>
+<li><strong>On the computer.</strong> Recordings are first saved in a local folder on the recorded computer.</li>
+<li><strong>To our cloud storage.</strong> As each file is finished, the desktop app uploads it to a storage bucket we control in Amazon Web Services (AWS), in the United States. It travels encrypted and is stored encrypted. The local copy is removed only after the upload is confirmed.</li>
+<li><strong>Processing.</strong> A processing service that we run in our own AWS account turns recordings into step-by-step playbooks.</li>
+<li><strong>AI.</strong> For recordings made under version 0.5 of the recording agreement or later, the recordings, screenshots and page contents included, are read by an AI model, Claude Sonnet, made by Anthropic, through Amazon Bedrock under our own AWS account, processed in AWS data centres in the United States, to find and describe the steps of each task. What it writes follows the same rules as everything else we keep.</li>
+<li><strong>Playbooks.</strong> The resulting playbooks are stored in our company account on Box.</li>
+</ol>
+<p>We do not sell recordings or anything made from them, and we do not share them with anyone outside our company except the service providers named above (AWS, including Amazon Bedrock, and Box), which hold or process them for us. Recordings are used only to build and review work playbooks.</p>
+</section>
+
+<section aria-labelledby="how-long">
+<h2 id="how-long">How long it is kept</h2>
+<ul>
+<li><strong>On the computer:</strong> until the file is uploaded and the upload is confirmed.</li>
+<li><strong>Screen video in cloud storage:</strong> deleted 180 days after upload.</li>
+<li><strong>Other recording files in cloud storage:</strong> until deleted. Today no automatic deletion is set for them.</li>
+<li><strong>Playbooks in Box:</strong> until deleted. Nothing deletes playbooks automatically, and the team deletes them when they are no longer needed.</li>
+</ul>
+</section>
+
+<section aria-labelledby="who-sees">
+<h2 id="who-sees">Who can see it</h2>
+<p>Only the internal team at Fidorn, Inc. that builds and reviews playbooks, and the systems described above.</p>
+</section>
+
+<section aria-labelledby="stop">
+<h2 id="stop">How to stop</h2>
+<ul>
+<li>Uninstall ScanBoy from Windows (Settings, Apps, ScanBoy, Uninstall). Recording stops and ScanBoy no longer starts when you sign in. Remove the extension in the browser as well (Chrome: chrome://extensions; Edge: edge://extensions).</li>
+<li>Uninstalling does not delete what was already recorded. To ask for your recordings to be deleted, or for any question about this policy, contact <a href="mailto:bao@fidorn.com">bao@fidorn.com</a>.</li>
+</ul>
+</section>
+
+<section aria-labelledby="changes">
+<h2 id="changes">Changes to this policy</h2>
+<p>If we change what is recorded or where it goes, we update this page and the recording agreement, and the desktop app asks you again before it records under the new terms.</p>
+</section>
+</main>
+</body>
+</html>
