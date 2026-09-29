@@ -16,6 +16,7 @@
     --muted: #4b5366;
     --rule: #e4dfd3;
     --link: #1e4fd6;
+    --code-bg: #efebe1;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -24,6 +25,7 @@
       --muted: #b9b5ab;
       --rule: #2b3550;
       --link: #9dbbff;
+      --code-bg: #1d2740;
     }
   }
   html {
@@ -69,8 +71,19 @@
   li {
     margin: 0.4rem 0;
   }
+  li > ul {
+    margin: 0.4rem 0 0;
+  }
   li::marker {
     color: var(--muted);
+  }
+  code {
+    font-family: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    background: var(--code-bg);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
   }
   a {
     color: var(--link);
@@ -82,7 +95,7 @@
     border-radius: 2px;
   }
   @media print {
-    :root { --bg: #fff; --text: #000; --muted: #333; --rule: #999; --link: #000; }
+    :root { --bg: #fff; --text: #000; --muted: #333; --rule: #999; --link: #000; --code-bg: #fff; }
     main { max-width: none; padding: 0; }
   }
 </style>
@@ -91,14 +104,15 @@
 <main>
 <header>
 <h1>ScanBoy privacy policy</h1>
-<p class="updated">Last updated: <time datetime="2026-09-25">25 September 2026</time></p>
+<p class="updated">Last updated: <time datetime="2026-09-29">29 September 2026</time></p>
 </header>
 
-<p>ScanBoy is a work-recording tool that Fidorn, Inc. ("we") uses internally. It has two parts: the ScanBoy desktop app for Windows, and the ScanBoy browser extension for Chrome and Edge. This page explains what they record, where it goes, how long it is kept, and how to stop it.</p>
+<p>ScanBoy is a work-recording tool that Fidorn, Inc. ("we") uses internally. It has two parts: the ScanBoy desktop app for Windows and Mac, and the ScanBoy browser extension for Chrome and Edge. This page explains what they record, where it goes, how long it is kept, and how to stop it.</p>
 
 <section aria-labelledby="who-uses">
 <h2 id="who-uses">Who uses ScanBoy</h2>
-<p>Only our own staff and invited testers who have accepted the ScanBoy recording agreement. The agreement is shown by the desktop app before anything is recorded, and nothing is recorded unless the person clicks "Agree and start recording". If the agreement changes, the person is asked again. The extension is listed privately (Unlisted on the Chrome Web Store, Hidden on Edge Add-ons) and is useless without the desktop app.</p>
+<p>Only our own staff and invited testers who have accepted the ScanBoy recording agreement. The agreement is shown before anything is recorded, and nothing is recorded unless the person accepts it: in Setup, by choosing "I accept the agreement", or in the ScanBoy window, by clicking "Agree and start recording". If the agreement changes, the person is asked again.</p>
+<p>Once accepted, ScanBoy records around the clock: it starts by itself every time the person signs in and keeps running in the background until it is paused, quit or removed. The extension is listed privately (Unlisted on the Chrome Web Store) and does nothing without the desktop app.</p>
 </section>
 
 <section aria-labelledby="extension-records">
@@ -116,17 +130,32 @@
 
 <section aria-labelledby="app-records">
 <h2 id="app-records">What the desktop app records</h2>
-<p>The desktop app records what the recording agreement lists: screenshots of the screen in use, keystrokes (a key typed into a password field is masked: only the fact that a key was pressed is kept), mouse clicks and scrolling, the names and titles of the apps and windows used, the structure and visible text of the focused window, the computer's time zone, and what the browser extension hands it. No audio is recorded. The recording agreement is the full and binding list.</p>
+<p>The desktop app records what the recording agreement lists:</p>
+<ul>
+<li>screenshots of the display that holds the window in use, taken when something happens (switching app or window, a click, scrolling stops, typing pauses) and about every 5 seconds otherwise. We can instead set a computer to take them at a steady rate of up to 5 per second; we set that rate remotely, without asking again, and never above 5 per second. Identical pictures are skipped;</li>
+<li>the position and size of the window in front, so a screenshot can be cropped to it;</li>
+<li>every keystroke, with the modifier keys held and the resulting text. A key typed into a password field is masked on the computer before it is saved: only the fact that a key was pressed is kept;</li>
+<li>mouse clicks (position and button) and scrolling;</li>
+<li>the names of the apps used and the titles of their windows;</li>
+<li>the structure and visible text of the focused window (its buttons, fields, menus and labels), leaving out password fields;</li>
+<li>what the browser extension hands it;</li>
+<li>the computer's time zone, each time recording starts;</li>
+<li>the person's name, only if they type it in Setup (it may be left empty).</li>
+</ul>
+<p>The agreement also covers two things that switch on only with a later version of the app, after the person is asked again: continuous screen video, saved in half-hour files, and the buttons, boxes and menu items used in desktop programs outside the browser, with the values typed into them (never the value of a password box).</p>
+<p>No audio is recorded. Personal apps and websites are not filtered out: everything on the recorded display is captured. The recording agreement is the full and binding list.</p>
+<p>Each computer also sends us a regular status report so the team can see that it is working: for example, whether ScanBoy is paused, the name typed in Setup, and the name, size and fingerprint of any file it could not upload.</p>
 </section>
 
 <section aria-labelledby="where">
 <h2 id="where">Where the recording goes</h2>
 <ol>
 <li><strong>On the computer.</strong> Recordings are first saved in a local folder on the recorded computer.</li>
-<li><strong>To our cloud storage.</strong> As each file is finished, the desktop app uploads it to a storage bucket we control in Amazon Web Services (AWS), in the United States. It travels encrypted and is stored encrypted. The local copy is removed only after the upload is confirmed.</li>
-<li><strong>Processing.</strong> A processing service that we run in our own AWS account turns recordings into step-by-step playbooks.</li>
+<li><strong>To our cloud storage.</strong> As each file is finished, the desktop app uploads it to a storage bucket we control in Amazon Web Services (AWS), in the United States. It travels encrypted and is stored encrypted. The local copy is removed only after the upload is confirmed. Status reports go to the same place.</li>
+<li><strong>Processing.</strong> A processing service that we run in our own AWS account copies the recordings to its own disk and turns them into step-by-step drafts and playbooks.</li>
 <li><strong>AI.</strong> For recordings made under version 0.5 of the recording agreement or later, the recordings, screenshots and page contents included, are read by an AI model, Claude Sonnet, made by Anthropic, through Amazon Bedrock under our own AWS account, processed in AWS data centres in the United States, to find and describe the steps of each task. What it writes follows the same rules as everything else we keep.</li>
-<li><strong>Playbooks.</strong> The resulting playbooks are stored in our company account on Box.</li>
+<li><strong>Our viewer.</strong> The team looks at recordings, and at each computer's status and name, in a web viewer that we run in our own AWS account and that only our team can open.</li>
+<li><strong>Drafts and playbooks.</strong> The resulting drafts and playbooks are stored in our company account on Box, together with a small file for each computer that holds its ID and the name typed in Setup, if any.</li>
 </ol>
 <p>We do not sell recordings or anything made from them, and we do not share them with anyone outside our company except the service providers named above (AWS, including Amazon Bedrock, and Box), which hold or process them for us. Recordings are used only to build and review work playbooks.</p>
 </section>
@@ -134,10 +163,11 @@
 <section aria-labelledby="how-long">
 <h2 id="how-long">How long it is kept</h2>
 <ul>
-<li><strong>On the computer:</strong> until the file is uploaded and the upload is confirmed.</li>
+<li><strong>On the computer:</strong> until the file is uploaded and the upload is confirmed. Anything not yet uploaded when ScanBoy is removed stays on the computer until someone deletes it.</li>
+<li><strong>Working copies on the processing service:</strong> deleted automatically, within about a week.</li>
 <li><strong>Screen video in cloud storage:</strong> deleted 180 days after upload.</li>
-<li><strong>Other recording files in cloud storage:</strong> until deleted. Today no automatic deletion is set for them.</li>
-<li><strong>Playbooks in Box:</strong> until deleted. Nothing deletes playbooks automatically, and the team deletes them when they are no longer needed.</li>
+<li><strong>Other recording files and status reports in cloud storage:</strong> until deleted. Today no automatic deletion is set for them.</li>
+<li><strong>Drafts, playbooks and the per-computer files in Box:</strong> until deleted. Nothing deletes them automatically, and the team deletes them when they are no longer needed.</li>
 </ul>
 </section>
 
@@ -149,8 +179,14 @@
 <section aria-labelledby="stop">
 <h2 id="stop">How to stop</h2>
 <ul>
-<li>Uninstall ScanBoy from Windows (Settings, Apps, ScanBoy, Uninstall). Recording stops and ScanBoy no longer starts when you sign in. Remove the extension in the browser as well (Chrome: chrome://extensions; Edge: edge://extensions).</li>
-<li>Uninstalling does not delete what was already recorded. To ask for your recordings to be deleted, or for any question about this policy, contact <a href="mailto:bao@fidorn.com">bao@fidorn.com</a>.</li>
+<li><strong>For a while, on Windows:</strong> right-click the ScanBoy icon near the clock. "Pause" stops recording until you choose "Resume", or for 60 minutes. "Quit ScanBoy" stops recording at once, until the next time you sign in.</li>
+<li><strong>For good:</strong> remove ScanBoy. Recording stops and ScanBoy no longer starts when you sign in.
+<ul>
+<li>Windows: Settings, Apps, ScanBoy, Uninstall.</li>
+<li>Mac: in Terminal, run the removal line from the ScanBoy Mac install guide, <code>bash ~/Downloads/install-scanboy.sh --uninstall</code>.</li>
+</ul>
+Remove the extension in the browser as well (Chrome: chrome://extensions; Edge: edge://extensions).</li>
+<li>Removing ScanBoy does not delete what was already recorded, whether it was uploaded or is still waiting on the computer. To ask for your recordings to be deleted, or for any question about this policy, contact <a href="mailto:bao@fidorn.com">bao@fidorn.com</a>.</li>
 </ul>
 </section>
 
