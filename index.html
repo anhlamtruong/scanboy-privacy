@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="What AITeaching (formerly ScanBoy), the work-recording tool Fidorn, Inc. uses internally, records, where it goes, how long it is kept, and how to stop it.">
+<meta name="description" content="What AITeaching, the work-recording tool Fidorn, Inc. uses internally, records, where it goes, how long it is kept, who can see it, and how to stop it.">
 <title>AITeaching privacy policy</title>
 <link rel="icon" href="data:,">
 <style>
@@ -104,64 +104,65 @@
 <main>
 <header>
 <h1>AITeaching privacy policy</h1>
-<p class="updated">Last updated: <time datetime="2026-10-11">11 October 2026</time></p>
+<p class="updated">Last updated: <time datetime="2026-10-22">22 October 2026</time></p>
 </header>
 
-<p>AITeaching, formerly called ScanBoy, is a work-recording tool that Fidorn, Inc. ("we") uses internally. It has two parts: the AITeaching desktop app for Windows and Mac, and the AITeaching browser extension for Chrome and Edge. This page explains what they record, where it goes, how long it is kept, and how to stop it.</p>
+<p>AITeaching is a work-recording tool that Fidorn, Inc. ("we") uses internally. It has two parts: the AITeaching desktop app for Windows and Mac, and the AITeaching browser extension for Chrome and Edge. This page explains what they record, where it goes, how long it is kept, who can see it, and how to stop it. It follows version 0.10 of the AITeaching recording agreement, which is the full and binding list.</p>
 
 <section aria-labelledby="who-uses">
 <h2 id="who-uses">Who uses AITeaching</h2>
-<p>Only our own staff and invited testers who have accepted the AITeaching recording agreement. A person accepts it by downloading and installing the desktop app: the app shows no agreement window and asks nothing when it starts. A new version of the agreement is accepted the same way, by installing the version of the app that carries it. Nothing is recorded on a computer where AITeaching is not installed.</p>
-<p>Once installed, AITeaching records around the clock: it starts by itself every time the person signs in and keeps running in the background until it is paused, quit or removed. The extension is listed privately (Unlisted on the Chrome Web Store) and does nothing without the desktop app.</p>
+<p>Only our own staff and invited testers who have accepted the AITeaching recording agreement. A person accepts it by downloading and installing the desktop app; the app shows no agreement window and asks nothing when it starts. A new version of the agreement is accepted the same way, by installing the version that carries it. The extension is listed privately (Unlisted on the Chrome Web Store, Hidden on Edge Add-ons) and is useless without the desktop app.</p>
+<p>Nothing is recorded on a computer where AITeaching is not installed. Once installed, AITeaching records around the clock: it starts by itself every time the person signs in and keeps running in the background until it is paused, quit or removed. When an update brings a version of the agreement that records more than before, the app shows a notice on the computer once, with a way to read the new text; recording does not wait for it.</p>
 </section>
 
 <section aria-labelledby="extension-records">
 <h2 id="extension-records">What the browser extension records</h2>
-<p>On the web pages a person works in, the extension notes:</p>
+<p>On the web pages a person works in, in Chrome or Edge, the extension notes:</p>
 <ul>
-<li>the full address of each page, including everything after the "?";</li>
+<li>the full address of each page, including everything after the "?". Such addresses can carry sign-in links, password-reset links, one-time links from e-mails and the identifiers of the records opened; they are kept exactly as they appear, with nothing removed or hidden;</li>
 <li>the page title;</li>
 <li>the fields, buttons and labels on the page, which one the person used, and the value typed into an ordinary field;</li>
-<li>how the page changed while the person worked;</li>
+<li>the page's contents and structure, and how they changed while the person worked;</li>
 <li>which browser tab and window was in use.</li>
 </ul>
-<p>It never reads the value of a password field, a card number, a card security code, a one-time code, or a hidden or file field: those are masked before any value is read. It does not filter out personal websites. The extension sends nothing over the internet and saves nothing itself: it hands what it notes to the AITeaching desktop app on the same computer.</p>
+<p>The value of a password field, a card number, a card security code, a one-time code, or a hidden or file field is never recorded: the extension masks it in the browser's memory before anything is passed on. It does not filter out personal websites. The extension sends nothing over the internet and saves nothing to disk; the one thing it keeps is a random id for the browser session, in the browser's session storage, which the browser clears when it closes. It hands what it notes to the AITeaching desktop app on the same computer.</p>
 </section>
 
 <section aria-labelledby="app-records">
 <h2 id="app-records">What the desktop app records</h2>
 <p>The desktop app records what the recording agreement lists:</p>
 <ul>
-<li>screenshots of the display that holds the window in use, taken when something happens (switching app or window, a click, scrolling stops, typing pauses) and about every 5 seconds otherwise. We can instead set a computer to take them at a steady rate of up to 5 per second; we set that rate remotely, without asking again, and never above 5 per second. Identical pictures are skipped;</li>
-<li>the position and size of the window in front, so a screenshot can be cropped to it;</li>
-<li>every keystroke, with the modifier keys held and the resulting text. A key typed into a password field is masked on the computer before it is saved: only the fact that a key was pressed is kept;</li>
-<li>mouse clicks (position and button) and scrolling;</li>
-<li>the names of the apps used and the titles of their windows;</li>
-<li>the structure and visible text of the focused window (its buttons, fields, menus and labels), leaving out password fields;</li>
-<li>what the browser extension hands it;</li>
-<li>the computer's time zone, each time recording starts;</li>
-<li>the person's name, if one was typed in an earlier Setup of the computer. The team can change it;</li>
-<li>a label with the lesson's name, when Teach is started for the person in Sam, our portal. The computer shows a notice when this happens. Teach only adds a label: AITeaching records all the time either way.</li>
+<li><strong>screenshots</strong> of the display that holds the window in use, taken when something happens (switching app or window, a click, scrolling stops, typing pauses) and about every 5 seconds otherwise. We can instead set a computer to take them at a steady rate of up to 5 per second; we set that rate remotely, without asking again, and never above 5 per second. Identical pictures are skipped;</li>
+<li><strong>pictures of every other screen</strong> connected to the computer, at the same moments and with the same settings, just as sharp, so their text can be read. Nothing on them is hidden or blurred, and a picture of a screen that has not changed is skipped. We can turn this off for a computer;</li>
+<li><strong>where windows and screens sit:</strong> the position and size of the window in front, so a screenshot can be cropped to it; and the position, size, scaling and rotation of every screen, which one is the main screen, and which screen each click and scroll was on;</li>
+<li><strong>every keystroke</strong>, with the modifier keys held and the resulting text. A key typed into a password field is masked on the computer before it is saved: only the fact that a key was pressed is kept;</li>
+<li><strong>mouse clicks</strong> (position and button) and scrolling;</li>
+<li><strong>the names of the apps used</strong> and the titles of their windows;</li>
+<li><strong>the structure and visible text of the focused window</strong> (its buttons, fields, menus and labels), leaving out password fields;</li>
+<li><strong>what the browser extension hands it</strong> (above);</li>
+<li><strong>the computer's time zone</strong>, each time recording starts: its difference from UTC and, where the computer gives one, the zone's name;</li>
+<li><strong>the person's name</strong>, if one was typed in an earlier Setup of the computer. The team can change it;</li>
+<li><strong>a label with the lesson's name</strong>, when Teach is started for the person in Sam, our portal. The computer shows a notice when this happens. Teach only adds a label: AITeaching records all the time either way.</li>
 </ul>
-<p>The agreement also covers two things that switch on only when a version of the app that records them is installed: continuous screen video, saved in half-hour files, and the buttons, boxes and menu items used in desktop programs outside the browser, with the values typed into them (never the value of a password box).</p>
-<p>No audio is recorded. Personal apps and websites are not filtered out: everything on the recorded display is captured. The recording agreement is the full and binding list.</p>
-<p>Each computer also sends us a regular status report so the team can see that it is working: for example, whether AITeaching is paused, the person's name if one was typed, and the name, size and fingerprint of any file it could not upload.</p>
+<p>The agreement also covers two things that switch on only when a version of the app that records them is installed: a continuous video of each screen, saved in half-hour files, when we turn video on for a computer (nothing in it is blurred, though password boxes show as dots, as they do on screen); and the buttons, boxes and menu items used in desktop programs outside the browser, with the values typed into them (never the value of a password box).</p>
+<p>No audio is recorded: the microphone is never used. Personal apps and websites are not filtered out: everything on every recorded screen is captured, whatever the app, including personal e-mail, banking and shopping, with their pages, their addresses and their contents. Do not do private things on a computer while it is recording, or remove AITeaching first. The recording agreement is the full and binding list.</p>
+<p>Each computer also sends us a regular status report so the team can see that it is working: for example, whether AITeaching is paused, the person's name if one was typed, and the name, size and fingerprint of any file it could not upload because one of the same name is already stored, so that a file already stored as an exact copy can be cleared from the computer.</p>
 </section>
 
 <section aria-labelledby="live">
 <h2 id="live">Live watching</h2>
-<p>The recording agreement also lets the team watch a computer's screen live while AITeaching runs, in our team-only viewer. Watching saves nothing beyond the normal recording, and the AITeaching icon shows when someone is watching. The live picture travels encrypted, either straight to the viewer or through relay servers of Amazon Web Services.</p>
+<p>The recording agreement also lets the team watch a computer's screens live while AITeaching runs, in our team-only viewer: the screen in use and, smaller, every other screen connected to it. Watching saves nothing beyond the normal recording, and the AITeaching icon shows when someone is watching. The live picture travels encrypted, either straight to the viewer or through relay servers of Amazon Web Services.</p>
 </section>
 
 <section aria-labelledby="where">
 <h2 id="where">Where the recording goes</h2>
 <ol>
-<li><strong>On the computer.</strong> Recordings are first saved in a local folder on the recorded computer.</li>
-<li><strong>To our cloud storage.</strong> As each file is finished, the desktop app uploads it to a storage bucket we control in Amazon Web Services (AWS), in the United States. It travels encrypted and is stored encrypted. The local copy is removed only after the upload is confirmed. Status reports go to the same place. A daily backup copy is kept in a separate, encrypted backup store in the same AWS account.</li>
+<li><strong>On the computer.</strong> Recordings are first saved in a local folder on the recorded computer (the recording buffer).</li>
+<li><strong>To our cloud storage.</strong> As each file is finished, the desktop app uploads it to a storage bucket we control in Amazon Web Services (AWS), in the United States, where the internal team that builds playbooks can review it. It travels encrypted and is stored encrypted. The local copy is removed only after the upload is confirmed. Status reports go to the same place. A daily backup copy is kept in a separate, encrypted backup store in the same AWS account.</li>
 <li><strong>Processing.</strong> A processing service that we run in our own AWS account copies the recordings to its own disk and turns them into step-by-step drafts and playbooks.</li>
-<li><strong>AI.</strong> For recordings made under version 0.5 of the recording agreement or later, the recordings, screenshots and page contents included, are read by an AI model, Claude Sonnet, made by Anthropic, through Amazon Bedrock under our own AWS account, processed in AWS data centres in the United States, to find and describe the steps of each task. What it writes follows the same rules as everything else we keep.</li>
+<li><strong>AI.</strong> For recordings made under version 0.5 of the recording agreement or later, the recordings, screenshots and page contents included, are read by an AI model, Claude Sonnet, made by Anthropic, through Amazon Bedrock under our own AWS account, processed in AWS data centres in the United States, to find and describe the steps of each task. What it writes follows the same rules as everything else we keep. <strong>Pictures of the other screens and the screen video are never read by the AI model</strong> and never copied into our Box folder; only the internal team that builds playbooks sees them.</li>
 <li><strong>Our viewer.</strong> The team looks at recordings, and at each computer's status and name, in a web viewer that we run in our own AWS account and that only our team can open.</li>
-<li><strong>Drafts and playbooks.</strong> The resulting drafts and playbooks are stored in our company account on Box, together with a small file for each computer that holds its ID and the person's name, if one was typed.</li>
+<li><strong>Drafts and playbooks.</strong> The resulting drafts and playbooks are stored in our company account on Box, together with a small file for each computer that holds its ID and the person's name, if one was typed (never in a folder's name).</li>
 </ol>
 <p>We do not sell recordings or anything made from them, and we do not share them with anyone outside our company except the service providers named above (AWS, including Amazon Bedrock, and Box), which hold or process them for us. Recordings are used only to build and review work playbooks.</p>
 </section>
@@ -172,7 +173,7 @@
 <li><strong>On the computer:</strong> until the file is uploaded and the upload is confirmed. Anything not yet uploaded when AITeaching is removed stays on the computer until someone deletes it.</li>
 <li><strong>Working copies on the processing service:</strong> deleted automatically, within about a week.</li>
 <li><strong>Screen video in cloud storage:</strong> deleted 180 days after upload.</li>
-<li><strong>Other recording files and status reports in cloud storage:</strong> until deleted. Today no automatic deletion is set for them. The recording agreement also allows us to keep recordings older than about 30 days in a separate, encrypted archive instead, until we delete them or the engagement ends.</li>
+<li><strong>Other recording files and status reports in cloud storage:</strong> until deleted. Today no automatic deletion is set for them. The recording agreement also allows us to move recordings older than about 30 days into a separate, encrypted archive instead, kept until we delete them or the engagement ends; that move is planned and not switched on yet.</li>
 <li><strong>Backup copies:</strong> each daily backup is kept 35 days, so a deleted file can remain in a backup for up to 35 days.</li>
 <li><strong>Drafts, playbooks and the per-computer files in Box:</strong> until deleted. Nothing deletes them automatically, and the team deletes them when they are no longer needed.</li>
 </ul>
@@ -186,7 +187,7 @@
 <section aria-labelledby="stop">
 <h2 id="stop">How to stop</h2>
 <ul>
-<li><strong>For a while, on Windows:</strong> right-click the AITeaching icon near the clock. "Pause" stops recording until you choose "Resume", or for 60 minutes. "Quit AITeaching" stops recording at once, until the next time you sign in.</li>
+<li><strong>For a while, on Windows:</strong> right-click the AITeaching icon near the clock. "Pause" stops recording until you choose "Resume", or for 60 minutes; anyone at the computer may pause, and while it is paused the team sees "Paused since …" next to the computer. "Quit AITeaching" stops recording at once, until the next time you sign in: AITeaching sends what it can of what it has already recorded, then closes, and anything not yet sent stays on the computer until AITeaching next runs.</li>
 <li><strong>For good:</strong> remove AITeaching. Recording stops and AITeaching no longer starts when you sign in.
 <ul>
 <li>Windows: Settings, Apps, AITeaching, Uninstall.</li>
@@ -201,6 +202,7 @@ Remove the extension in the browser as well (Chrome: chrome://extensions; Edge: 
 <h2 id="changes">Changes to this policy</h2>
 <p>If we change what is recorded or where it goes, we update this page and the recording agreement. The new terms apply once you install the version of the desktop app that carries them: installing it accepts them.</p>
 </section>
+
 </main>
 </body>
 </html>
